@@ -16,7 +16,7 @@
  * Check code style with
  * checkpatch.pl --file --no-tree audio.c
  */
-
+#include <stdio.h>
 #include <linux/module.h>
 #include <linux/init.h>
 #include <linux/errno.h>
