@@ -31,11 +31,11 @@ int main(int argc, char ** argv)
 {
     idx = 0;
 
-    static const char filename[] = "data/file1.txt";
+    static const char filename[] = "/dev/audio";
 
     printf("Audio Userspace program started\n");
 
-    if (audio_fd = fopen(filename, "w") == -1) {
+    if ( (audio_fd = open(filename, O_RDWR)) == -1) {
         fprintf(stderr, "could not open %s\n", filename);
         return -1;
     }
