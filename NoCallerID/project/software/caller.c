@@ -41,7 +41,7 @@ int main(int argc, char ** argv)
     }
     printf("File descriptor: %d",audio_fd );
 
-		printf("buf size: %d\n", BUF_SIZE);
+	printf("buf size: %d\n", BUF_SIZE);
     while(idx < BUF_SIZE){
         read_samples();
 		}
