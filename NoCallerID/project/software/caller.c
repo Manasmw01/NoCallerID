@@ -39,6 +39,7 @@ int main(int argc, char ** argv)
         fprintf(stderr, "could not open %s\n", filename);
         return -1;
     }
+    printf("File descriptor: %d",audio_fd );
 
 		printf("buf size: %d\n", BUF_SIZE);
     while(idx < BUF_SIZE){
