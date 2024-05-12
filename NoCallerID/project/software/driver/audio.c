@@ -16,7 +16,6 @@
  * Check code style with
  * checkpatch.pl --file --no-tree audio.c
  */
-#include <linux/stdio.h>
 #include <linux/module.h>
 #include <linux/init.h>
 #include <linux/errno.h>
@@ -98,7 +97,7 @@ static long audio_ioctl(struct file *f, unsigned int cmd, unsigned long arg)
 		case AUDIO_READ_SAMPLES:
 			// Sleep the process until woken by the interrupt handler, and the data is ready
 			wait_event_interruptible_exclusive(wq, dev.ready.audio_ready);
-			printf("101\n");
+			printk("101\n");
 			// The data is now ready, send them to the user space
 			vla.samples = dev.samples;
 			audio_ready_t ready = { .audio_ready = 0 };
@@ -106,14 +105,14 @@ static long audio_ioctl(struct file *f, unsigned int cmd, unsigned long arg)
 			// Copy the data to the user space
 			if (copy_to_user((audio_arg_t *) arg, &vla,
 					sizeof(audio_arg_t))){
-						printf("109\n");
+						printk("109\n");
 						return -EACCES;
-						printf("111\n");
+						printk("111\n");
 					}
 			break;
 
 		default:
-			printf("116\n");
+			printk("116\n");
 			return -EINVAL;
 		}
 
