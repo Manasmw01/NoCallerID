@@ -25,7 +25,6 @@ void read_samples() {
     }
 		
 		buffer[idx++] = vla.samples.l;
-		buffer[idx++] = vla.samples.r;
 }
  
 int main(int argc, char ** argv)
@@ -51,7 +50,7 @@ int main(int argc, char ** argv)
 			printf("samp: %lu\n", buffer[i]);
     write_wav("./wavfiles/anonymous_audio.wav", BUF_SIZE, buffer, S_RATE);
 
-    system("./twilio/place_call.sh");
+    //system("./twilio/place_call.sh");
 
     printf("Audio Userspace program terminating\n");
     return 0;

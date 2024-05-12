@@ -42,8 +42,7 @@ DECLARE_WAIT_QUEUE_HEAD(wq);
 
 /* Device registers */
 #define L_SAMPLES(x) (x)
-#define R_SAMPLES(x) ((x) + 4)
-#define RESET_IRQ(x) ((x) + 8)
+#define RESET_IRQ(x) ((x) + 4)
 
 /*
  * Information about our device
@@ -63,7 +62,6 @@ struct audio_dev {
 static void read_samples(audio_samples_t *samples)
 {
 	samples->l = ioread32(L_SAMPLES(dev.virtbase));
-	samples->r = ioread32(R_SAMPLES(dev.virtbase));
 	ioread32(RESET_IRQ(dev.virtbase));
 	dev.samples = *samples;
 }
