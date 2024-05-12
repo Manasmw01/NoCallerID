@@ -62,7 +62,7 @@ struct audio_dev {
 static void read_samples(audio_samples_t *samples)
 {
 	samples->l = ioread32(L_SAMPLES(dev.virtbase));
-	ioread32(RESET_IRQ(dev.virtbase));
+	//ioread32(RESET_IRQ(dev.virtbase));
 	dev.samples = *samples;
 }
 
