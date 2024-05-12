@@ -16,7 +16,7 @@
  * Check code style with
  * checkpatch.pl --file --no-tree audio.c
  */
-#include <linux/module.h>
+#include <linux/module.h>	
 #include <linux/init.h>
 #include <linux/errno.h>
 #include <linux/version.h>
@@ -92,7 +92,7 @@ irq_handler_t irq_handler(int irq, void *dev_id, struct pt_regs *reg)
 static long audio_ioctl(struct file *f, unsigned int cmd, unsigned long arg)
 {
 	audio_arg_t vla;
-
+	printk("95\n");
 	switch (cmd) {
 		case AUDIO_READ_SAMPLES:
 			// Sleep the process until woken by the interrupt handler, and the data is ready
