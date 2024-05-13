@@ -31,7 +31,7 @@ int main(int argc, char ** argv)
 {
     idx = 0;
 
-    static const char filename[] = "/dev/vga_ball";
+    static const char filename[] = "/dev/audio";
 
     printf("Audio Userspace program started\n");
 

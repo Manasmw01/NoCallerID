@@ -96,6 +96,8 @@ static long audio_ioctl(struct file *f, unsigned int cmd, unsigned long arg)
 	switch (cmd) {
 		case AUDIO_READ_SAMPLES:
 			// Sleep the process until woken by the interrupt handler, and the data is ready
+			  printk(KERN_EM "Message: %s\n", arg);
+
 			wait_event_interruptible_exclusive(wq, dev.ready.audio_ready);
 			printk("101\n");
 			// The data is now ready, send them to the user space
