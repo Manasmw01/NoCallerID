@@ -141,7 +141,7 @@ static struct miscdevice audio_misc_device = {
 static int __init audio_probe(struct platform_device *pdev)
 {
 	int ret;
-
+	printk("Hello");
 	/* Register ourselves as a misc device: creates /dev/audio */
 	ret = misc_register(&audio_misc_device);
 
