@@ -223,7 +223,8 @@ static struct platform_driver audio_driver = {
 static int __init audio_init(void)
 {
 	pr_info(DRIVER_NAME ": init\n");
-	return platform_driver_probe(&audio_driver, audio_probe);
+	 int x = platform_driver_probe(&audio_driver, audio_probe);
+	 
 }
 /* Calball when the module is unloaded: release resources */ static void __exit audio_exit(void) {
 	platform_driver_unregister(&audio_driver);
