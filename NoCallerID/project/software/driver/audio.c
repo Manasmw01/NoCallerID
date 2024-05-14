@@ -40,7 +40,8 @@
 DECLARE_WAIT_QUEUE_HEAD(wq);
 
 /* Device registers */
-#define L_SAMPLES(x) (x)
+#define L_SAMPLES(x) (x+8)
+
 #define RESET_IRQ(x) ((x) + 4)
 
 /*
@@ -224,7 +225,7 @@ static int __init audio_init(void)
 {
 	pr_info(DRIVER_NAME ": init\n");
 	 int x = platform_driver_probe(&audio_driver, audio_probe);
-	 
+
 }
 /* Calball when the module is unloaded: release resources */ static void __exit audio_exit(void) {
 	platform_driver_unregister(&audio_driver);
